@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent horizontal scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+/* Make sure root also safe */
+#root {
+  overflow-x: hidden;
+}
+
+/* Prevent accidental drag scroll */
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+/* 
+---------------Inter (Headings)------------
+600 → font-semibold
+700 → font-bold
+---------------Roboto (Body)------------------
+400 → font-normal
+500 → font-medium */
