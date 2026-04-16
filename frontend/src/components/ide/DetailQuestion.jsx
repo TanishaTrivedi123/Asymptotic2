@@ -38,7 +38,7 @@ const DetailQuestion = () => {
       const language_ID = languageMap[language];
 
       const response = await axios.post(
-        "http://localhost:8080/api/ide/run-code",
+        "https://asymptotic2backend-a4ly.onrender.com/api/ide/run-code",
         {
           code: code,
           language_id: language_ID,
@@ -132,11 +132,14 @@ const DetailQuestion = () => {
       for (let i = 0; i < testcase.length; i++) {
         const tc = testcase[i];
 
-        const res = await axios.post("http://localhost:8080/api/ide/run-code", {
-          code,
-          language_id,
-          input: tc.input,
-        });
+        const res = await axios.post(
+          "https://asymptotic2backend-a4ly.onrender.com/api/ide/run-code",
+          {
+            code,
+            language_id,
+            input: tc.input,
+          },
+        );
 
         let userOutput = res.data.output?.trim();
         let expectedOutput = tc.output?.trim();

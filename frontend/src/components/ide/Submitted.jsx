@@ -9,11 +9,14 @@ const Submitted = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const res = await axios.get("http://localhost:8080/api/auth/getUser", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const res = await axios.get(
+          "https://asymptotic2backend-a4ly.onrender.com/api/auth/getUser",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         setShowName(res.data.user);
       } catch (err) {
         console.log(err);
