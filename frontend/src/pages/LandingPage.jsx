@@ -8,20 +8,21 @@ const LandingPage = () => {
     <div className="relative min-h-screen text-textColor flex items-center px-6 md:px-12 overflow-hidden">
       {/* BACKGROUND VIDEO */}
       <video
-        src="/LandingPageVideo.mp4"
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-      ></video>
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/LandingPageVideo.mp4" type="video/mp4" />
+      </video>
 
       {/* DARK OVERLAY */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/70 z-[-1]" />
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[0]" />
 
       <div className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* LEFT SIDE TEXT */}
-        <div className="flex flex-col justify-center items-start text-center md:text-left space-y-5">
+        <div className="flex z-10 flex-col justify-center items-start text-center md:text-left space-y-5">
           <h1 className="text-4xl md:text-6xl font-inter font-bold leading-tight">
             Master DSA Through <br />
             Pattern-Based Practice
