@@ -8,14 +8,13 @@ const LandingPage = () => {
     <div className="relative min-h-screen text-textColor flex items-center px-6 md:px-12 overflow-hidden">
       {/* BACKGROUND VIDEO */}
       <video
+        src="/LandingPageVideo.mp4"
         autoPlay
         loop
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-      >
-        <source src="/LandingPageVideo.mp4" type="video/mp4" />
-      </video>
+      ></video>
 
       {/* DARK OVERLAY */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/70 z-[-1]" />
