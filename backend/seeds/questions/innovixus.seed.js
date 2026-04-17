@@ -1,72 +1,130 @@
 module.exports = [
   {
     customId: "in101",
-    title: "Two Sum - Pair with Given Sum",
+    title: "Find Numbers with Even Number of Digits",
     topic: "innovixus",
     difficulty: "Easy",
     description: `
-    Given an array arr[] of integers and another integer target. 
-    Determine if there exist two distinct indices such that the sum of their elements is equal to the target.
+    Given an array nums of integers, return how many of them contain an even number of digits.
     `,
-    constraints: ["1 ≤ arr.size ≤ 105", "-105 ≤ arr[i] ≤ 105", "-2*105 ≤ target ≤ 2*105"],
+    constraints: ["1 <= nums.length <= 500", "1 <= nums[i] <= 105"],
     examples: [
       {
-        input: "arr[] = [0, -1, 2, -3, 1], target = -2",
-        output: "true",
-        explanation: "arr[3] + arr[4] = -3 + 1 = -2",
+        input: "nums = [12,345,2,6,7896]",
+        output: "2",
+        explanation: `
+        12 contains 2 digits (even number of digits). 
+        345 contains 3 digits (odd number of digits). 
+        2 contains 1 digit (odd number of digits). 
+        6 contains 1 digit (odd number of digits). 
+        7896 contains 4 digits (even number of digits). 
+        Therefore only 12 and 7896 contain an even number of digits.
+        `,
       }
     ],
     testCases: [
-      { input: "0, -1, 2, -3, 1", output: "true" }
+      { input: "12,345,2,6,7896", output: "2" }
     ]
   },
 
   {
     customId: "in102",
-    title: "First Occurrence in Sorted",
+    title: "Merge Sorted Array",
     topic: "innovixus",
     difficulty: "Easy",
     description: `
-    Given a sorted array arr[] and an integer k, find the position(0-based indexing) at which k is present in the array using binary search. If k doesn't exist in arr[] return -1. 
+    You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 
-    Note: If multiple occurrences are there, please return the smallest index.
+    Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+    The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+
+    Can you come up with an algorithm that runs in O(m + n) time?
     `,
-    constraints: ["1 ≤ arr.size() ≤ 105", "1 ≤ arr[i] ≤ 106", "1 ≤ k ≤ 106"],
+    constraints: ["nums1.length == m + n", "nums2.length == n", "0 <= m", "n <= 200", "1 <= m + n <= 200", "-109 <= nums1[i], nums2[j] <= 109"],
     examples: [
       {
-        input: "arr[] = [0, -1, 2, -3, 1], k = 4",
-        output: "3",
-        explanation: "4 appears at index 3.",
+        input: "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+        output: "[1,2,2,3,5,6]",
+        explanation: "The arrays we are merging are [1,2,3] and [2,5,6].The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.",
       }
     ],
     testCases: [
-      { input: "0, -1, 2, -3, 1", output: "3" }
+      { input: "1,2,3,0,0,0", output: "3" }
     ]
   },
 
   {
     customId: "in103",
-    title: "Power Set",
+    title: "Ceil in a Sorted Array",
     topic: "innovixus",
-    difficulty: "Medium",
-    description: `Given a string s of length n, find all the possible non-empty subsequences of the string s in lexicographically-sorted order.
-    
-    Your Task:
-    You don't need to read input or print anything. Your task is to complete the function AllPossibleStrings() which takes a string s as the input parameter and returns a list of all possible subsequences (non-empty) that can be formed from s in lexicographically sorted order.
+    difficulty: "Easy",
+    description: `
+    Given a sorted array arr[] and an integer x, find the index (0-based) of the smallest element in arr[] that is greater than or equal to x. This element is called the ceil of x. If such an element does not exist, return -1.
 
-    Expected Time Complexity: O( n*2n  )
-    Expected Space Complexity: O( n * 2n )
+    Note: In case of multiple occurrences of ceil of x, return the index of the first occurrence.
     `,
-    constraints: ["1 <= n <= 16", "s constitutes of lower case english alphabets"],
+    constraints: ["1 ≤ arr.size() ≤ 106", "1 ≤ arr[i] ≤ 106", "0 ≤ x ≤ arr[n-1]"],
     examples: [
       {
-        input: "s = \"abc\"",
-        output: "a ab abc ac b bc c",
-        explanation: "There are a total 7 number of subsequences possible for the given string, and they are mentioned above in lexicographically sorted order.",
+        input: "arr[] = [1, 2, 8, 10, 11, 12, 19], x = 5",
+        output: "2",
+        explanation: "Smallest number greater than 5 is 8, whose index is 2.",
       }
     ],
     testCases: [
-      { input: "\"abc\"", output: "a ab abc ac b bc c" }
+      { input: "1, 2, 8, 10, 11, 12, 19", output: "2" }
+    ]
+  },
+
+  {
+    customId: "in104",
+    title: "Linked List Cycle",
+    topic: "innovixus",
+    difficulty: "Easy",
+    description: `
+    Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+    There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+    Return true if there is a cycle in the linked list. Otherwise, return false.
+    `,
+    constraints: ["The number of the nodes in the list is in the range [0, 104].", "-105 <= Node.val <= 105", "pos is -1 or a valid index in the linked-list."],
+    examples: [
+      {
+        input: "head = [3,2,0,-4], pos = 1",
+        output: "true",
+        explanation: "There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).",
+      }
+    ],
+    testCases: [
+      { input: "3,2,0,-4", output: "true" }
+    ]
+  },
+
+  {
+    customId: "in105",
+    title: "Valid Parentheses",
+    topic: "innovixus",
+    difficulty: "Easy",
+    description: `
+    Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+    An input string is valid if:
+
+    1. Open brackets must be closed by the same type of brackets.
+    2. Open brackets must be closed in the correct order.
+    3. Every close bracket has a corresponding open bracket of the same type.
+    `,
+    constraints: ["1 <= s.length <= 104", "s consists of parentheses only '()[]{}'."],
+    examples: [
+      {
+        input: "()[]{}",
+        output: "true",
+      }
+    ],
+    testCases: [
+      { input: "()[]{}", output: "true" }
     ]
   }
 ];
